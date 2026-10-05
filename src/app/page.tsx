@@ -1,22 +1,19 @@
-import Link from "next/link";
+import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-border">
-        <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
-          <span className="font-bold text-lg text-primary">FoodBiz</span>
-          <div className="flex gap-3">
+    <div className="flex min-h-screen flex-col">
+      <header className="sticky top-0 z-50 border-b border-border/80 bg-white/80 backdrop-blur-xl">
+        <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
+          <span className="text-lg font-bold tracking-tight text-primary">FoodBiz</span>
+          <div className="flex items-center gap-2">
             <Link
               href="/login"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground px-3 py-2"
+              className="rounded-xl px-3 py-2 text-sm font-medium text-muted-foreground transition hover:text-foreground"
             >
-              Login
+              Merchant login
             </Link>
-            <Link
-              href="/signup"
-              className="text-sm font-medium bg-primary text-primary-foreground rounded-lg px-4 py-2"
-            >
+            <Link href="/signup" className="btn-primary px-4 py-2 text-sm">
               Start free
             </Link>
           </div>
@@ -24,65 +21,57 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        <section className="max-w-5xl mx-auto px-4 py-16 md:py-24 text-center">
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground leading-tight">
-            Your own store.
-            <br />
-            <span className="text-primary">Zero commissions.</span>
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">
-            Built for Indian home bakers, cloud kitchens & tiffin sellers.
-            Create a mobile store, share one link, accept orders & UPI payments.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              href="/signup"
-              className="inline-flex items-center justify-center rounded-xl bg-primary text-primary-foreground font-semibold px-8 py-3.5 text-base shadow-sm hover:bg-orange-600 transition"
-            >
-              Create your store — Free
-            </Link>
-            <Link
-              href="/s/demo"
-              className="inline-flex items-center justify-center rounded-xl border border-border bg-white font-medium px-8 py-3.5 text-base hover:bg-muted transition"
-            >
-              See demo store
-            </Link>
+        <section className="relative overflow-hidden">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(232,93,4,0.12),_transparent_55%)]" />
+          <div className="relative mx-auto max-w-5xl px-4 pb-16 pt-14 text-center md:pb-24 md:pt-20">
+            <div className="animate-fade-up mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-success" />
+              Built for Indian home food businesses
+            </div>
+            <h1 className="animate-fade-up text-4xl font-bold leading-[1.1] tracking-tight md:text-6xl">
+              Your store.
+              <br />
+              <span className="bg-gradient-to-r from-primary to-[#ff8c42] bg-clip-text text-transparent">
+                Zero commissions.
+              </span>
+            </h1>
+            <p className="animate-fade-up mx-auto mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
+              Create a mobile mini-store, share one link on Instagram or WhatsApp.
+              Customers order. You get paid. No marketplace middleman.
+            </p>
+            <div className="animate-fade-up mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link href="/signup" className="btn-primary w-full px-8 py-3.5 text-base sm:w-auto">
+                Create merchant account
+              </Link>
+              <Link
+                href="/s/priyas-bakery"
+                className="w-full rounded-xl border border-border bg-white px-8 py-3.5 text-base font-medium shadow-sm transition hover:bg-muted sm:w-auto"
+              >
+                View demo store →
+              </Link>
+            </div>
+            <p className="mt-4 text-xs text-muted-foreground">
+              Merchants manage products · Customers only browse & order
+            </p>
           </div>
         </section>
 
-        <section className="bg-white border-y border-border">
-          <div className="max-w-5xl mx-auto px-4 py-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="border-y border-border bg-white">
+          <div className="mx-auto grid max-w-5xl gap-4 px-4 py-14 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              {
-                title: "One link store",
-                desc: "Share on Instagram bio or WhatsApp status. Customers order in seconds.",
-              },
-              {
-                title: "UPI payments",
-                desc: "Razorpay integration. Money goes directly to you. No marketplace cut.",
-              },
-              {
-                title: "WhatsApp alerts",
-                desc: "Get order notifications instantly on WhatsApp so you never miss one.",
-              },
-              {
-                title: "Pickup & delivery",
-                desc: "Set delivery radius, fees, and daily order limits. Stay in control.",
-              },
-              {
-                title: "Mobile-first",
-                desc: "Designed for phones. Your customers and you both use it on mobile.",
-              },
-              {
-                title: "Own your customers",
-                desc: "No Zomato/Swiggy middleman. Build your own direct ordering channel.",
-              },
-            ].map((f) => (
-              <div key={f.title} className="p-5 rounded-2xl bg-muted/50">
-                <h3 className="font-semibold text-foreground">{f.title}</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">
-                  {f.desc}
-                </p>
+              ['One link store', 'Share on Instagram bio or WhatsApp status. Customers order in seconds.'],
+              ['Merchant dashboard', 'Add products, manage orders, pause the store — only you control the shop.'],
+              ['Customer checkout', 'Clean mobile menu, cart, pickup or delivery. No login required for buyers.'],
+              ['Direct customers', 'No Zomato or Swiggy cut. Build your own ordering channel.'],
+              ['Mobile-first', 'Designed for phones — the way your customers already shop.'],
+              ['UPI ready', 'Payment hooks in place. Cash / pay-later works today.'],
+            ].map(([title, desc], i) => (
+              <div key={title} className="card p-5 transition hover:-translate-y-0.5 hover:shadow-md">
+                <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-primary-soft text-sm font-bold text-primary">
+                  {i + 1}
+                </div>
+                <h3 className="font-semibold">{title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{desc}</p>
               </div>
             ))}
           </div>
@@ -90,8 +79,8 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        FoodBiz — Infrastructure for independent food businesses in India
+        FoodBiz — infrastructure for independent food businesses in India
       </footer>
     </div>
-  );
+  )
 }
